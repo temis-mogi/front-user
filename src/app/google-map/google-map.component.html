@@ -1,1 +1,46 @@
+<div class="row" *ngIf="!showInput">
+    <div class="col text-center">
+        <ion-button expand="full" (click)="openModal()">Relatar problemas</ion-button>
+    </div>
+</div>
+
+<!-- <div class="row"> -->
+<div *ngIf="showInput">
+    <ion-item>
+        <ion-label color="primary" stacked>{{address}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+        <ion-label color="primary" stacked>{{date}}</ion-label>
+
+    </ion-item>
+
+    <ion-item>
+        <ion-label color="primary" stacked>Description</ion-label>
+        <ion-textarea textarea placeholder="Description" id="description" type="text" name="description" class="form-control" [(ngModel)]="description"></ion-textarea>
+    </ion-item>
+
+    <ion-list>
+        <ion-radio-group [(ngModel)]="type">
+            <ion-list-header>
+                <ion-label>Tipo</ion-label>
+            </ion-list-header>
+
+            <ion-item>
+                <ion-label>Denuncia</ion-label>
+                <ion-radio slot="start" value="complaint" checked></ion-radio>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Ocorrência</ion-label>
+                <ion-radio slot="start" value="occurrence"></ion-radio>
+            </ion-item>
+        </ion-radio-group>
+    </ion-list>
+    <ion-button expand="full" (click)="sendInput()">Enviar</ion-button>
+    <!-- </div> -->
+</div>
+
+<br/>
+
 <div #map id="map"></div>
